@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yummy</title>
+    <!-- ^ fontawsome css file -->
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <!-- ^ Bootstrap5 css file -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <!-- ^ my Style sheet -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- ^ animation on scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- ^ Favicon -->
+    <link rel="icon" href="./images/logo.png" />
+    <!-- ^ google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      class="loading position-fixed top-0 start-0 w-100 h-100 bg-black d-flex justify-content-center align-items-center"
+    >
+      <div class="spinner">
+        <i class="fas fa-spinner fa-spin fa-3x text-white"></i>
+      </div>
+    </div>
+    <div class="sidebar d-flex open me-3">
+      <div
+        class="left-side text-white d-flex flex-column justify-content-between p-2"
+      >
+        <ul class="chooseOne list-unstyled">
+          <li class="mb-2" id="search">Search</li>
+          <li class="mb-2" id="categories">Categories</li>
+          <li class="mb-2" id="area">Area</li>
+          <li class="mb-2" id="ingredients">Ingredients</li>
+          <li class="mb-2" id="contactUs">Contact us</li>
+        </ul>
+        <footer>
+          <ul class="icons list-unstyled d-flex align-items-center gap-3">
+            <li>
+              <i class="fa-brands fa-facebook"></i>
+            </li>
+            <li>
+              <i class="fa-brands fa-twitter"></i>
+            </li>
+            <li>
+              <i class="fa-solid fa-globe"></i>
+            </li>
+          </ul>
+          <p>Copyright D.M &copy; All Right Reserved.</p>
+        </footer>
+      </div>
+      <div
+        class="right-side d-flex flex-column justify-content-between align-items-center"
+      >
+        <div class="image my-2">
+          <img class="img-fluid" src="./images/logo.png" alt="" />
+        </div>
+        <div class="barIcon">
+          <i id="open" class="fa-solid fa-bars d-block"></i>
+          <i id="close" class="fa-solid fa-xmark d-none"></i>
+        </div>
+        <div class="bottom-icon">
+          <ul class="list-unstyled">
+            <li class="mb-2 theme-toggle cursor-pointer">
+              <i class="fa-solid fa-moon"></i>
+            </li>
+            <li class="mb-2 theme-toggle cursor-pointer d-none">
+              <i class="fa-solid fa-sun"></i>
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-globe"></i>
+            </li>
+            <li>
+              <i class="fa-solid fa-share-nodes"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main-page p-2 my-4 d-block">
+      <div class="container">
+        <div class="row g-4"></div>
+      </div>
+    </div>
+    <div class="search-page my-4 d-none">
+      <div class="container">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input
+              id="searchByName"
+              class="form-control"
+              type="text"
+              placeholder="Search By Name"
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              id="searchByLetter"
+              class="form-control"
+              type="text"
+              maxlength="1"
+              placeholder="Search By First Letter"
+            />
+          </div>
+        </div>
+        <div class="row g-4 mt-4" id="searchResults"></div>
+      </div>
+    </div>
+    <div class="category-page p-2 my-4 d-none">
+      <div class="container">
+        <div class="row g-4" id="categoriesContainer"></div>
+      </div>
+    </div>
+    <div class="area p-2 my-4 d-none">
+      <div class="container"></div>
+    </div>
+    <div class="ingredients p-2 my-4 d-none">
+      <div class="container"></div>
+    </div>
+    <div class="contact p-5 d-none">
+      <div class="container">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input
+              id="nameInput"
+              class="form-control"
+              type="text"
+              placeholder="Enter Your Name"
+            />
+            <div class="alert alert-danger mt-2 d-none">
+              Special characters and numbers not allowed
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input
+              id="emailInput"
+              class="form-control"
+              type="email"
+              placeholder="Enter Your Email"
+            />
+            <div class="alert alert-danger mt-2 d-none">
+              Enter valid email. (example@yyy.zzz)
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input
+              id="phoneInput"
+              class="form-control"
+              type="text"
+              placeholder="Enter Your Phone"
+            />
+            <div class="alert alert-danger mt-2 d-none">
+              Enter valid Phone Number
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input
+              id="ageInput"
+              class="form-control"
+              type="number"
+              placeholder="Enter Your Age"
+            />
+            <div class="alert alert-danger mt-2 d-none">
+              Enter valid age (16-100)
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input
+              id="passwordInput"
+              class="form-control"
+              type="password"
+              placeholder="Enter Your Password"
+            />
+            <div class="alert alert-danger mt-2 d-none">
+              Enter valid password (min 8 chars, 1 letter, 1 number)
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input
+              id="repasswordInput"
+              class="form-control"
+              type="password"
+              placeholder="Repassword"
+            />
+            <div class="alert alert-danger mt-2 d-none">
+              Passwords don't match
+            </div>
+          </div>
+        </div>
+        <button
+          id="submitBtn"
+          class="btn btn-outline-danger mt-4 d-block mx-auto"
+          disabled
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+    <!-- ^ sweetAlert Library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- ^ animation on scroll library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ^ animation library GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- ^ animation library Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- ^ Bootstrap5 js file -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- ^ My js file -->
+    <script src="/js/index.js"></script>
+  </body>
+</html>
