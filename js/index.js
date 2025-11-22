@@ -1,3 +1,4 @@
+"use strict";
 // ^ ================ HTML Elements ===============
 const logo = document.querySelector(".sidebar .image img");
 const moonIcon = document.querySelector(
